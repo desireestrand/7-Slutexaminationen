@@ -1,8 +1,16 @@
 import airbeanLandingIcon from '../assets/graphics/airbean-landing.svg';
 import airbeanLandingGraphicLeft from '../assets/graphics/intro-graphic-left.svg';
 import airbeanLandingGraphicRight from '../assets/graphics/intro-graphic-right.svg';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Landing() {
+    let navigate = useNavigate();
+    useEffect(() => {
+    setTimeout(() => {
+        navigate("/menu");
+    }, 5000);
+    }, []);
   
     return (
         <div className="Landing">
