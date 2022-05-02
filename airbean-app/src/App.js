@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Landing from './views/Landing';
 import Menu from './views/Menu';
-import Cart from './views/Cart';
 import Status from './views/Status';
 import Error from './components/Error';
 
@@ -15,7 +14,6 @@ function App() {
         <Route path="/" element={ <Navigate to="/landing" /> } exact />
         <Route path="/landing" element={ <Landing /> } exact />
         <Route path="/menu" element={ <Menu /> } />
-        <Route path="/cart" element={ <Cart /> } />
         <Route path="/status" element={ <Status /> } />
         <Route path="*" element={ <Error /> } />
       </Routes>
