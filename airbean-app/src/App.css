@@ -335,3 +335,26 @@
   text-decoration: none;
   color: #2F2926;
 }
+
+.add-remove button {
+  background-color: transparent;
+}
+
+.CartContent .upArrow {
+  position: relative;
+  left: 84.27%;
+right: 13.6%;
+top: 28.85%;
+bottom: 70.43%;
+  color: #2F2926;
+}
+
+.CartContent .downArrow {
+  position: relative;
+  left: 86.4%;
+right: 11.47%;
+top: 34.66%;
+bottom: 64.63%;
+
+color: #2F2926;
+}
