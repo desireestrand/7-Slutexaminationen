@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, Link } from 'react-router-dom';
 import airbeanHeader from '../assets/graphics/graphics-header.svg';
 import airbeanFooter from '../assets/graphics/graphics-footer.svg';
 import airbeanCart from '../assets/graphics/bag.svg';
@@ -18,6 +19,7 @@ function Menu() {
     const count = useSelector((state) => { return state.counter });
     console.log(count);
     // const [menu, setMenu] = useState([]);
+    let location = useLocation();
 
     useEffect(() => {
         async function getMenu() {
@@ -35,9 +37,9 @@ function Menu() {
     return (
         <div className="Menu">
             <img src={ airbeanHeader } alt="Airbean Header" className="Header"/>
-            <button className="CartButton" onClick={() => setShow(true)}><img src={ airbeanCart } alt="Cart" /></button>
+            <button className="CartButton"><Link to={{ pathname: '/cart', state: { background: location }}}><img src={ airbeanCart } alt="Cart" /></Link></button>
             <p className="CartNumber">{ count }</p>
-            <Cart onClose={() => setShow(false)} show={show} total={total}/>
+            {/* <Cart onClose={() => setShow(false)} show={show} total={total}/> */}
              <div className="MenuContent"> 
                 <h1>Meny</h1>
                 <ul className="MenuItemList">

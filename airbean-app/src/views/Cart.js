@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AddedItem from '../components/AddedItem';
@@ -8,6 +8,7 @@ function Cart(props) {
     const dispatch = useDispatch();
     const addedItems = useSelector((state) => { return state.addedItems });
     const orderResponse = useSelector((state) => { return state.orderResponse });
+    const total = useSelector((state) => { return state.total });
     console.log('Arrayen:', addedItems);
 
     const handleOrder = e => {
@@ -22,14 +23,17 @@ function Cart(props) {
           .then(res => console.log(dispatch(getOrderResponse(res))))
       };
 
-    if (!props.show) {
-        return null
-    }
+      let history = useNavigate();
+      let back = e => {
+        e.stopPropagation();
+        history(-1);
+      };
+
 
     return (
-        <div className="Cart" onClick={props.onClose}>
+        <div className="Cart" onClick={back}>
             <div className="CartArrow"></div>
-            <div className="CartContent" onClick={e => e.stopPropagation()}>
+            <div className="CartContent" onClick={back => back.stopPropagation()}>
             <h1>Din beställning</h1>
             <ul className="OrderItemList">
             { addedItems.map((addeditem) => {
@@ -38,7 +42,7 @@ function Cart(props) {
                         )
                     })}
             </ul>
-            <h2>Total {props.total}</h2>
+            <h2>Total {total}</h2>
             <h3>inkl. moms + drönarleverans</h3>
 
             <button className="acceptButton" onClick={ handleOrder }><Link to="/status">Take my money!</Link></button>
