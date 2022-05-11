@@ -15,9 +15,9 @@ function Landing() {
     return (
         <div className="Landing">
             <div className="Landing-content"> 
-                <img src={ airbeanLandingIcon } alt="Airbean Landing animation" class="LandingIcon"/>
+                <img src={ airbeanLandingIcon } alt="Airbean Landing animation" className="LandingIcon"/>
                 <img src={ airbeanLandingGraphicLeft } alt="Airbean Landing graphic left" />
-                <img src={ airbeanLandingGraphicRight } alt="Airbean Landing graphic right" class="LandingGraphicRight" />
+                <img src={ airbeanLandingGraphicRight } alt="Airbean Landing graphic right" className="LandingGraphicRight" />
             </div>
         </div>
     )
