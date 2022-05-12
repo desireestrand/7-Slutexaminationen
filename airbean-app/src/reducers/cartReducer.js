@@ -29,6 +29,7 @@ const cartReducer = (state = initialState, action) => {
 
         case 'CLEAR_ORDER':
             return {
+                ...state,
                 menu: [],
                 addedItems: [],
                 total: 0,

@@ -1,8 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AddedItem from '../components/AddedItem';
 import { getOrderResponse } from '../actions/cartActions';
+import airbeanArrow from '../assets/graphics/cart-detail.svg';
+import loaderPic from '../assets/graphics/loader.png';
 
 function Cart(props) {
     const dispatch = useDispatch();
@@ -23,17 +25,14 @@ function Cart(props) {
           .then(res => console.log(dispatch(getOrderResponse(res))))
       };
 
-      let history = useNavigate();
-      let back = e => {
-        e.stopPropagation();
-        history(-1);
-      };
-
+    if (!props.show) {
+        return null
+    }
 
     return (
-        <div className="Cart" onClick={back}>
-            <div className="CartArrow"></div>
-            <div className="CartContent" onClick={back => back.stopPropagation()}>
+        <div className="Cart" onClick={props.onClose}>
+        <div className="CartArrow"><img src={ airbeanArrow } alt="Cart"/></div>
+            <div className="CartContent" onClick={e => e.stopPropagation()}>
             <h1>Din beställning</h1>
             <ul className="OrderItemList">
             { addedItems.map((addeditem) => {
@@ -50,6 +49,5 @@ function Cart(props) {
         </div>
     )
 }
-
 
 export default Cart;
