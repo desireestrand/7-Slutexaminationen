@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Work+Sans:wght@400;600;700&display=swap');
 
-/* Skärmstorleken - detta är även ändrat i index.css */
+/* Skärmstorleken */
 .App {
   width: 375px;
   height: 667px;
@@ -14,25 +14,21 @@
   background-color: #38846D;
 }
 
-.LandingIcon, .LandingGraphicLeft, .LandingGraphicRight {
+.Landing-logo, .Landing-graphic-left, .Landing-graphic-right {
   position: absolute;
 }
 
-.LandingIcon {
+.Landing-logo {
+  z-index: 1;
   left: 58px;
   top: 264px;
 }
 
-.LandingGraphicRight {
+.Landing-graphic-right {
   left: 232px;
 }
 
 /* Menu */
-.Header {
-  position: fixed;
-  z-index: 1;
-}
-
 .Menu {
   position: relative;
   width: 375px;
@@ -41,13 +37,68 @@
   background-color: #F3E4E1;
 }
 
-.MenuContent {
+.Menu-header {
+  position: fixed;
+  z-index: 1;
+}
+
+.Cart-button {
+  position: fixed;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  left: 299px;
+  top: 16px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  border-radius: 30px;
+  border: none;
+	outline: inherit;
+  cursor: pointer;
+  background-color: #2F2926;
+  color: white;
+}
+
+.Cart-amount {
+  position: fixed;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  left: 336px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  border-radius: 30px;
+  background-color: #E5674E;
+  color: white;
+  font-family: 'PT Serif', serif;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.Cart-wrapper {
+  z-index: 1;
+  position: fixed;
+  width: 375px;
+  height: 667px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Menu-content {
   width: 375px;
   height: 839px;
   margin-top: 119px;
 }
 
-.MenuContent h1 {
+.Menu-content h1 {
   position: absolute;
   width: 311px;
   height: 60px;
@@ -61,15 +112,11 @@
   color: #2F2926;
 }
 
-.MenuContent ul {
+.Menu-content ul {
   padding: 0;
 }
 
-.MenuContent li {
-  list-style: none;
-}
-
-.MenuItemList {
+.MenuItem-list {
   position: absolute;
   width: 311px;
   margin-top: 80px;
@@ -77,6 +124,16 @@
   margin-right: 32px;
 }
 
+.Menu-content li {
+  list-style: none;
+}
+
+.Menu-footer {
+  position: absolute;
+  top: 885px;
+}
+
+/* MenuItem */
 .MenuItem {
   position: relative;
   height: 50px;
@@ -116,7 +173,7 @@
   line-height: 120%;
 }
 
-.MenuItem .Line {
+.MenuItem .MenuItem-line {
   position: absolute;
   width: 120.75px;
   height: 0px;
@@ -150,27 +207,7 @@
   color: #2F2926;
 }
 
-.Footer {
-  position: absolute;
-  top: 885px;
-}
-
 /* Cart */
-.cart-wrapper {
-  z-index: 1;
-  position: fixed;
-  width: 375px;
-  height: 667px;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .Cart {
   z-index: 2;
   position: fixed;
@@ -185,42 +222,11 @@
   justify-content: center;
 }
 
-.CartButton {
-  position: fixed;
-  z-index: 2;
-  width: 60px;
-  height: 60px;
-  left: 299px;
-  top: 16px;
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  border-radius: 30px;
-  border: none;
-	outline: inherit;
-  cursor: pointer;
-  background-color: #2F2926;
-  color: white;
+.Cart .Cart-amount {
+  top: 0px;
 }
 
-.CartNumber {
-  position: fixed;
-  z-index: 2;
-  width: 22px;
-  height: 22px;
-  left: 336px;
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  border-radius: 30px;
-  background-color: #E5674E;
-  color: white;
-  font-family: 'PT Serif', serif;
-  font-weight: 700;
-  font-size: 12px;
-}
-
-.CartArrow {
+.Cart-detail {
   z-index: 4;
   width: 32px;
   height: 20.18px;
@@ -231,7 +237,7 @@
   border-radius: 2px;
 }
 
-.CartContent {
+.Cart-content {
   z-index: 1;
   position: absolute;
   left: 4.53%;
@@ -242,7 +248,7 @@
   border-radius: 3px;
 }
 
-.CartContent h1 {
+.Cart-content h1 {
   margin-top: 40.77px;
   font-family: 'PT Serif', 'serif';
   font-weight: 700;
@@ -252,28 +258,210 @@
   color: #2F2926;
 }
 
-.CartContent button {
+.AddedItem-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 46px;
+  height: 255px;
+  overflow-y: scroll;
+}
+
+.Cart .Cart-total-title {
+  position: absolute;
+  width: 229.92px;
+  height: 46px;
+  left: 13px;
+  top: 371.77px;
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 120%;
+  color: #2F2926;
+}
+
+.Cart .Cart-total-line {
+  position: absolute;
+  width: 166px;
+  height: 0px;
+  left: 81px;
+  top: 411px;
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
+
+.Cart .Cart-total {
+  position: absolute;
+  width: 90.76px;
+  height: 46px;
+  left: 257.24px;
+  top: 371.77px;
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 120%;
+  color: #2F2926;
+}
+
+.Cart .Cart-total-extra {
+  position: absolute;
+  width: 311px;
+  height: 24px;
+  left: 13px;
+  top: 411.77px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: #2F2926;
+}
+
+.Cart-content button {
+  border: none;
+}
+
+.Cart-content button a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.Cart .Order-button {
   position: absolute;
   width: 248px;
   height: 55px;
   left: 47px;
-  top: 469.77px;
-  border: none;
+  top: 479.77px;
   border-radius: 50px;
   font-family: 'PT Serif', 'serif';
+  font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 120%;
   text-align: center;
   background-color: #2F2926;
-}
-
-.CartContent button a {
-  text-decoration: none;
   color: #FFFFFF;
 }
 
+/* AddedItem */
+.AddedItem {
+  height: 62px;
+  margin-top: 2px;
+}
+
+.AddedItem h2 {
+  position: relative;
+  width: 229.92px;
+  height: 20px;
+  left: 15px;
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #2F2926;
+  margin: 0;
+}
+
+.AddedItem .Cart-line {
+  position: relative;
+  width: 191px;
+  height: 0px;
+  left: 88px;
+  top: -4px;
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
+
+.AddedItem h3 {
+  position: relative;
+  width: 113px;
+  height: 14px;
+  left: 15px;
+  top: 4px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: #2F2926;
+  margin: 0;
+}
+
+.AddedItem p {
+  position: relative;
+  width: 17px;
+  height: 23.98px;
+  left: 294px;
+  top: -27px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 130%;
+  color: #2F2926;
+  margin: 0;
+}
+
+.Cart-add-remove {
+  height: 62px;
+}
+
+.Cart-add-remove button {
+  position: relative;
+  top: -62px;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+}
+
+.Cart-add-remove .Cart-add {
+  position: relative;
+  left: 287.5px;
+  top: -74.3px;
+}
+
+.Cart-add-remove .add {
+  position: absolute;
+  top: 7px;
+  right: 6px;
+  width: 8px;
+  height: 4.7px;
+  color: #2F2926;
+}
+
+.Cart-add-remove .Cart-remove {
+  position: relative;
+  left: 267.5px;
+  top: -41px;
+}
+
+.Cart-add-remove .remove {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  width: 8px;
+  height: 4.7px;
+  color: #2F2926;
+}
+
 /* Status */
+.Status-loader {
+  z-index: 1;
+  position: fixed;
+  width: 375px;
+  height: 667px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #38846D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .Status {
   position: relative;
   width: 375px;
@@ -281,43 +469,7 @@
   background-color: #E5674E;
 }
 
-.DroneIcon {
-  position: absolute;
-  width: 216.29px;
-  height: 119.06px;
-  left: 80px;
-  top: 139px;
-}
-
-.StatusContent h1 {
-  position: absolute;
-  width: 279px;
-  height: 125px;
-  left: 48px;
-  top: 299px;
-  font-family: 'PT Serif', 'serif';
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 120%;
-  text-align: center;
-  color: #FFFFFF;
-}
-
-.StatusContent h2 {
-  position: absolute;
-  width: 279px;
-  height: 37px;
-  left: 48px;
-  top: 424px;
-  font-family: 'Work Sans', 'sans-serif';
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 120%;
-  text-align: center;
-  color: #FFFFFF; 
-}
-
-.StatusContent h3 {
+.Status-content h3 {
   position: absolute;
   width: 279px;
   height: 37px;
@@ -331,7 +483,43 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.StatusContent button {
+.Status-drone-icon {
+  position: absolute;
+  width: 216.29px;
+  height: 119.06px;
+  left: 80px;
+  top: 139px;
+}
+
+.Status-content h1 {
+  position: absolute;
+  width: 279px;
+  height: 125px;
+  left: 48px;
+  top: 299px;
+  font-family: 'PT Serif', 'serif';
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 120%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.Status-content h2 {
+  position: absolute;
+  width: 279px;
+  height: 37px;
+  left: 48px;
+  top: 424px;
+  font-family: 'Work Sans', 'sans-serif';
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 120%;
+  text-align: center;
+  color: #FFFFFF; 
+}
+
+.Status-content button {
   position: absolute;
   width: 184px;
   height: 55px;
@@ -347,30 +535,33 @@
   background-color: #FFFFFF;
 }
 
-.StatusContent button a {
+.Status-content button a {
   text-decoration: none;
   color: #2F2926;
 }
 
-.add-remove button {
-  background-color: transparent;
+/* Error */
+.Error {
+  position: fixed;
+  width: 375px;
+  height: 667px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2F2926;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.CartContent .upArrow {
-  position: relative;
-  left: 84.27%;
-right: 13.6%;
-top: 28.85%;
-bottom: 70.43%;
-  color: #2F2926;
-}
-
-.CartContent .downArrow {
-  position: relative;
-  left: 86.4%;
-right: 11.47%;
-top: 34.66%;
-bottom: 64.63%;
-
-color: #2F2926;
+.Error h1 {
+  position: absolute;
+  width: 279px;
+  font-family: 'PT Serif', 'serif';
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 120%;
+  text-align: center;
+  color: #FFFFFF;
 }

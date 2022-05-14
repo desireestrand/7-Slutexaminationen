@@ -5,20 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
-import cartReducer from  './reducers/cartReducer';
 import { Provider } from 'react-redux';
 
+import airbeanReducer from  './reducers/airbeanReducer';
+
 const store = createStore(
-  cartReducer,
+  airbeanReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={ store }>
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

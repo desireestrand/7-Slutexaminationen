@@ -1,3 +1,4 @@
+/* Menu */
 export const addMenu = (menu) => {
     return {
         type: 'ADD_MENU',
@@ -5,6 +6,7 @@ export const addMenu = (menu) => {
     }
 }
 
+/* Cart */
 export const addToCart = (id) => {
     return {
         type: 'ADD_TO_CART',
@@ -12,30 +14,10 @@ export const addToCart = (id) => {
     }
 }
 
-export const countItem = (count) => {
+export const countCartItem = (count) => {
     return {
         type: 'COUNT',
         payload: count
-    }
-}
-
-export const addOrder = (order) => {
-    return {
-        type: 'ADD_ORDER',
-        payload: order
-    }
-}
-
-export const getOrderResponse = (res) => {
-    return {
-        type: 'GET_ORDER_RESPONSE',
-        payload: res
-    }
-}
-
-export const clearOrder = () => {
-    return {
-        type: 'CLEAR_ORDER'
     }
 }
 
@@ -50,5 +32,19 @@ export const subtractQuantity = (id) => {
     return {
         type: 'SUB_QUANTITY',
         id
+    }
+}
+
+/* Order */
+export const getOrderResponse = (res) => {
+    return {
+        type: 'GET_ORDER_RESPONSE',
+        payload: res
+    }
+}
+
+export const clearOrder = () => {
+    return {
+        type: 'CLEAR_ORDER'
     }
 }

@@ -1,6 +1,8 @@
 function Error() {
     return (
-        <h2>This is not the page you're looking for!</h2>
+        <div className="Error">
+            <h1>Nu har du hamnat fel!</h1>
+        </div>
     )
 }
 
